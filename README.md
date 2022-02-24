@@ -1,4 +1,5 @@
 # Kalkulator wielomianów
+
 ## Technologie
 ### Projekt jest tworzony i testowany na wersjach:
 * **C++ 20**

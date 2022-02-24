@@ -10,36 +10,24 @@
 #include <cmath>
 #include <locale>
 #include <stdexcept>
+#include "../Jednomian/jednomian.h"
 
 class Wielomian final {
 private:
-    // -----------------------
-    // Members
-    // -----------------------
-
+    // -----    Members   -----
     QString wielomian;
 
-    // -----------------------
-    // Functions
-    // -----------------------
+    // -----    Functions   -----
 
     static bool SprawdzWspolczynniki(const QString&);
 
 public:
-    // -----------------------
-    // Members
-    // -----------------------
-
-    // -----------------------
-    // Constructors
-    // -----------------------
-
+    // -----    Members   -----
+    friend class Jednomian;
+    // -----    Constructors   -----
     Wielomian(const QString& wielomian);
 
-    // -----------------------
-    // Functions
-    // -----------------------
-
+    // -----    Functions   -----
     void ZmienWielomian(const QString& wielomian) noexcept(false);
 
 };

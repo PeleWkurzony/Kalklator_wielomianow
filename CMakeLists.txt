@@ -18,8 +18,11 @@ find_package(Qt6 COMPONENTS
         REQUIRED)
 
 add_executable  (   Kalkulator_wielomianow main.cpp
-                        Classes/Wielomian/wielomian.cpp Classes/Wielomian/wielomian.h
-                )
+
+                    Classes/Wielomian/wielomian.cpp Classes/Wielomian/wielomian.h
+                    Classes/Jednomian/jednomian.cpp Classes/Jednomian/jednomian.h
+
+)
 target_link_libraries(Kalkulator_wielomianow
         Qt::Core
         Qt::Gui

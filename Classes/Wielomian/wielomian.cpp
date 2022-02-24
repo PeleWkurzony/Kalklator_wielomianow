@@ -35,7 +35,9 @@ Wielomian::Wielomian(const QString& wielomian) {
 
 void Wielomian::ZmienWielomian(const QString& str) noexcept(false) {
     if (!SprawdzWspolczynniki(str)) {
-        throw std::invalid_argument("W wielomianie znajduje się więcej niż jedna niewiadoma!");
+        std::string what = "W wielomianie znajduje się więcej niż jedna niewiadoma! \n" +
+                (std::string) __FILE__ + " - " + std::to_string(__LINE__);
+        throw std::invalid_argument(what);
     }
     this->wielomian = str;
 }
