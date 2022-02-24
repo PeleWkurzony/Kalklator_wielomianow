@@ -2,6 +2,7 @@
 #include <QPushButton>
 #include <iostream>
 #include "Classes/Wielomian/wielomian.h"
+#include "Classes/Jednomian/jednomian.h"
 
 int main(int argc, char *argv[]) {
 //    QApplication a(argc, argv);

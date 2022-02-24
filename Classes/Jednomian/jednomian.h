@@ -4,21 +4,23 @@
 
 #ifndef KALKULATOR_WIELOMIANOW_JEDNOMIAN_H
 #define KALKULATOR_WIELOMIANOW_JEDNOMIAN_H
+// Qt
 #include <QString>
+// STL
 #include <string>
 #include <exception>
+#include <cmath>
+// Own
 #include "../Wielomian/wielomian.h"
 
 class Jednomian final {
 private:
     // -----    Members   -----
     QString jednomian;
-    unsigned short stopien;
-    int wspolczynnik;
     // -----    Functions   -----
     static bool SprawdzPoprawnoscJednomianu(const QString&);
-    void ZmienWspolczynnik();
-    void ZmienStopien();
+    [[nodiscard]] double ZnajdzWspolczynnik() const;
+    [[nodiscard]] double ZnajdzStopien() const;
 public:
     // -----    Members   -----
 
@@ -27,6 +29,7 @@ public:
     // -----    Functions   -----
     void ZmienJednomian(const QString &) noexcept(false);
     [[nodiscard]] QString GetJednomian() const { return jednomian; };
+    [[nodiscard]] double ObliczJednomian(double) const;
 };
 
 

@@ -11,11 +11,26 @@
 bool Jednomian::SprawdzPoprawnoscJednomianu(const QString & str) {
     return Wielomian::SprawdzWspolczynniki(str);
 }
-void Jednomian::ZmienWspolczynnik() {
-    //TODO:
+double Jednomian::ZnajdzWspolczynnik() const {
+    QString wspolczynnik = "";
+    for (const QChar& chr : jednomian) {
+        if (chr.isLetter()) break;
+        wspolczynnik += chr;
+    }
+    //TODO: Dodać funkcję konwertującą zapis matematyczny na obliczony współczynnik np. |4| ^ 1/2 albo sqrt(12)
+    return wspolczynnik.toDouble();
 }
-void Jednomian::ZmienStopien() {
-    //TODO:
+double Jednomian::ZnajdzStopien() const {
+    qsizetype pozycja = jednomian.indexOf('^');
+    QString stopien = "";
+    if (pozycja == -1) {
+        return 1;
+    }
+    for (; pozycja < jednomian.count(); pozycja++) {
+        stopien += jednomian[pozycja];
+    }
+    //TODO: Dodać funkcję konwertującą zapis matematyczny na obliczony stopień np. |4| ^ 1/2 albo sqrt(12)
+    return stopien.toDouble();
 }
 
 // --------------------------------------
@@ -35,4 +50,10 @@ void Jednomian::ZmienJednomian(const QString & str) noexcept(false) {
         throw std::invalid_argument(what);
     }
     jednomian = str;
+}
+double Jednomian::ObliczJednomian(double x) const {
+    double wspolczynnik = ZnajdzWspolczynnik();
+    double stopien = ZnajdzStopien();
+    //    a * (x^p)
+    return wspolczynnik * (std::pow(x, stopien));
 }

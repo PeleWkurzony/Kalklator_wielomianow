@@ -4,12 +4,14 @@
 
 #ifndef KALKULATOR_WIELOMIANOW_WIELOMIAN_H
 #define KALKULATOR_WIELOMIANOW_WIELOMIAN_H
-
+// Qt
 #include <QString>
+// STL
 #include <string>
 #include <cmath>
 #include <locale>
 #include <stdexcept>
+// Own
 #include "../Jednomian/jednomian.h"
 
 class Wielomian final {
